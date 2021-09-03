@@ -41,5 +41,6 @@ Curious to learn new things in the software world
 
 ## Screenshot
 
-<img src="images/login.jpeg">
+<img src="images/login_new.jpeg">
+<img src="images/user.jpeg">
   
