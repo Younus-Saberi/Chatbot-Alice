@@ -40,5 +40,5 @@ Curious to learn new things in the software world
 **Server:** MySQL(Localhost)
 
 ##Screenshot
-![alt text](https://github.com/Younus-Saberi/Chatbot-Alice/blob/master/login.jpeg?raw=true)
+
   
