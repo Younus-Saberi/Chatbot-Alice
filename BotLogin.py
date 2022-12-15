@@ -139,31 +139,34 @@ class Ui_MainWindow(object):
         username = self.textEdit.toPlainText()
         password = self.textEdit_2.toPlainText()
 
-        db = mysql.connector.connect(
-        host = "localhost/Server IP Address",
-        user = "YourUserName",
-        passwd = "YourPassword",
-        database = "ChatBot_Base"
+        # db = mysql.connector.connect(
+        # host = "localhost/Server IP Address",
+        # user = "YourUserName",
+        # passwd = "YourPassword",
+        # database = "ChatBot_Base"
 
-        )
+        # )
 
-        mycursor = db.cursor()
+        # mycursor = db.cursor()
 
-        mycursor.execute("INSERT INTO BotUserData (username,password,logintime) VALUES (%s,%s,%s)",(username,password,datetime.now()))  
-        db.commit()
-        mycursor.execute("SELECT * FROM BotUserData")
+        # mycursor.execute("INSERT INTO BotUserData (username,password,logintime) VALUES (%s,%s,%s)",(username,password,datetime.now()))  
+        # db.commit()
+        # mycursor.execute("SELECT * FROM BotUserData")
 
         # Authenticaing users 
  
 
-        for details in mycursor:
-            print(details)
+        # for details in mycursor:
+        #     print(details)
         if password == "1234" :
             from subprocess import call 
             MainWindow.close()
             # Redirecting to Main Window
-            call(["python","C:\\Users\\91738\\Desktop\\ChatBot_Project_FInal\\ChatbotUI.py"])
+        #     call(["python","C:\\Users\\91738\\Desktop\\ChatBot_Project_FInal\\ChatbotUI.py"])
 
+            #ADD MainChatbot.py File Location whenever you download it 
+            call(["python","D:\\Coding\\VsCode\\New folder\\Chatbot-Alice\\MainChatbot.py"])
+            
 
                 
                 
