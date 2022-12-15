@@ -3,9 +3,9 @@ from datetime import datetime                        #Time module
 from datetime import date
 import pyjokes                                       #Jokes module 
 import time                                             
-                     # DBMS 
+# import mysql.connector                               # DBMS 
 import Reso                                          # Importing Resource file
-from playsound import playsound
+# from playsound import playsound
 
 # Initializing UI Window
 class Ui_MainWindow(object):
