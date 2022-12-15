@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Reso
-import mysql.connector
+
 from datetime import datetime
 import sys
 
@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
 
         mycursor = db.cursor()
 
-        mycursor.execute("INSERT INTO BotUserData (username,password,logintime) VALUES (%s,%s,%s)",(username,password,datetime.now()))
+        mycursor.execute("INSERT INTO BotUserData (username,password,logintime) VALUES (%s,%s,%s)",(username,password,datetime.now()))  
         db.commit()
         mycursor.execute("SELECT * FROM BotUserData")
 
