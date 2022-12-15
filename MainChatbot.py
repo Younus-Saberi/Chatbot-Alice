@@ -3,7 +3,7 @@ from datetime import datetime                        #Time module
 from datetime import date
 import pyjokes                                       #Jokes module 
 import time                                             
-import mysql.connector                               # DBMS 
+                     # DBMS 
 import Reso                                          # Importing Resource file
 from playsound import playsound
 
@@ -184,7 +184,7 @@ class Ui_MainWindow(object):
         hr  = t.strftime("%I")
         min  = t.strftime("%M")
         period  = t.strftime("%p")
-        song = playsound('C:\\Users\\91738\\Desktop\\ChatBot_FInal\\Despacito.mp3')
+        # song = playsound('C:\\Users\\91738\\Desktop\\ChatBot_FInal\\Despacito.mp3')
 
         jokes = pyjokes.get_joke()
         Current_Time = f"{hr}:{min} {period}"
@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
                         "which languages do you speak":"I speak same as you",
                         "tell me a joke":f"{jokes}",
                         "recomend me a movie":"Silicon valley",  
-                        "song":f"{song}"
+                        # "song":f"{song}"
 
 
 
@@ -251,11 +251,16 @@ class Ui_MainWindow(object):
         Terminating_Server = Terminate_dict.keys() 
 
         # Merging dicts
-        
-        d1 = respo_dict | Intro_dict
-        d2 = Prob_dict  | Filter_dict
-        d3 = d1 | d2
-        d4 = d3  | Terminate_dict
+        def Merge(dict1, dict2):
+            for i in dict2.keys():
+                dict1[i]=dict2[i]
+            return dict1
+
+
+        d1 = Merge(respo_dict,Intro_dict)
+        d2 = Merge(Prob_dict,Filter_dict)
+        d3 = Merge(d1,d2)
+        d4 = Merge(d3,Terminate_dict)
         
         # BOT responses
         try:
@@ -294,28 +299,28 @@ class Ui_MainWindow(object):
         
             # Initializing Database with MySQL
 
-            db = mysql.connector.connect(
-                host="localhost/Server IP Address",
-                user = "YourUserName",
-                passwd = "YourPassword",
-                database = "ChatBot_Base"
-                )
+        #     db = mysql.connector.connect(
+        #         host="localhost/Server IP Address",
+        #         user = "YourUserName",
+        #         passwd = "YourPassword",
+        #         database = "ChatBot_Base"
+        #         )
 
-            mycursor = db.cursor()
-            responses = str(responses)
+        #     mycursor = db.cursor()
+        #     responses = str(responses)
 
-            # Inserting fetched data into database
+        #     # Inserting fetched data into database
 
-            mycursor.execute("INSERT INTO BotUserData (user_query,Bot_response,feedback) VALUES (%s,%s,%s)",(textpass,reply,feedtext))
-            db.commit()
+        #     mycursor.execute("INSERT INTO BotUserData (user_query,Bot_response,feedback) VALUES (%s,%s,%s)",(textpass,reply,feedtext))
+        #     db.commit()
 
-            mycursor.execute("SELECT * FROM BotUserData")
+        #     mycursor.execute("SELECT * FROM BotUserData")
 
-            for details__ in mycursor :
-                print(details__)
+        #     for details__ in mycursor :
+        #         print(details__)
 
 
-        DataManagment(self)
+        # DataManagment(self)
 
 
     def clearing(self):
@@ -332,7 +337,7 @@ class Ui_MainWindow(object):
 
 # UI setup 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
